@@ -1,0 +1,31 @@
+<div class="sign-in-container">
+  <div class="sign-in-upper">
+    <span>
+        <img height="60px" width="180px" src="./../../../../assets/images/wolters-kluwer-logo-large-dark.png" alt="">
+    </span>
+    <span class="sign-in-cch-name">
+        CCH Axcess<span class="sign-in-trade-mark">TM</span>
+    </span>
+    
+  </div>
+  <div class="sign-in-lower">
+    <div class="sign-in-header">
+      <span class="sign-in-h-sub1">Account Number</span> <span class="sign-in-h-sub2">982357 <i class="fa fa-pencil" aria-hidden="true"></i></span>
+    </div>
+    <div class="sign-in-body">
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <label title="Username">Username</label>
+        <input type="text" formControlName="userName">
+        <label title="Password">Password</label>
+        <input type="password" formControlName="password">
+        <div *ngIf="isWrongUsernamePassword"  class="sign-in-error">UserName or Passowrd is wrong!</div>
+        <button type="submit" class="btn btn-sign-in" [disabled]="!signInForm.valid">Login</button>
+      </form>
+    </div>
+    
+  </div>
+  <div class="sign-in-form-footer">
+     @2019, CCH Incorporated and its affiliates. All rights reserved. 
+    </div>
+
+</div>

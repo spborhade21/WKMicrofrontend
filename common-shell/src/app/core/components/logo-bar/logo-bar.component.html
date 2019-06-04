@@ -1,0 +1,46 @@
+<div style="display: flex;">
+  <div style="width:85%;padding-left: 10px;"><img height="70px" width="250px" src="./../../../../assets/images/wolters-kluwer-logo-large-dark.png" alt=""></div>
+  <div style="padding-top: 20px;display: flex;">
+
+    <div>
+        <div ngbDropdown class="d-inline-block" (openChange)="handleOpenClosedWorkflow($event)" #notificationDrpDwn="ngbDropdown">
+            <a href="javascript:void(0);" class="notification" id="dropdownNotification" 
+              ngbDropdownToggle>
+              <!-- <i class="fas fa-bell common-header-icon"></i> -->
+              <span class="commonglyphs commonglyphs-alert"></span>
+              <span class="badge"
+                *ngIf="unseenNotifications && unseenNotifications.length > 0">{{unseenNotifications.length}}</span>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownNotification">
+              <div class="drop-down-item" ngbDropdownItem *ngFor="let item of unseenNotifications">{{item.message}}</div>
+            </div>
+          </div>
+    
+    </div>
+    <div style="display: flex;">
+      <div ngbDropdown class="d-inline-block" (openChange)="handleOpenClosedWorkflow($event)" #userDetailDrpDwn="ngbDropdown">
+        <a href="javascript:void(0);" class="notification" id="dropdownUserDetail" 
+          ngbDropdownToggle>
+          <!-- <i class="fas fa-user-circle" style="font-size: 30px;"></i> -->
+          <span class="commonglyphs commonglyphs-user"></span>
+          <span class="common-header-icon-text">{{loggedInUser}}</span>
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownUserDetail">
+          <div class="common-user-detail-drp-item" ngbDropdownItem >
+              <div>
+                  {{loggedInUser}}@wolterskluwer.com
+              </div>
+              <div style="margin-top: 2vh">
+                  <button type="button" class="btn btn-lg btn-outline-primary primary-two-tone-button" (click)="logOutUser()">
+                      Logout
+                      <span class="commonglyphs commonglyphs-logout"></span>
+                    </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  
+  </div>
+</div>

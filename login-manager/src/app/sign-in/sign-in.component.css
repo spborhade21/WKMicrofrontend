@@ -1,0 +1,128 @@
+.sign-in-container{
+    padding: 20px;
+    width: 35vw;
+    height: 65vh;
+    position: absolute;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.sign-in-upper{
+ 
+  margin-left: -15px;
+}
+
+.sign-in-lower{
+  border: 1px solid lightgray;
+  background-color: #f4f4f4;
+}
+
+.sign-in-header{
+  height: 5vh;
+  font-size: 20px;
+  margin-bottom: 2vh;
+  margin-top: 4vh;
+  width: 82%;
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+input[type=text],input[type=password] {
+    margin-top: 1vh;
+    background-color: white !important; 
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 82%;
+    border: 1px solid gray;
+    margin-bottom: 4vh;
+    margin-left: 9%;
+    margin-right: 9%;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+   
+  }
+  
+  .btn-sign-in{
+    display: block;
+    margin: 5vh;
+    width: 85%;
+    height: 6vh;
+    font-size: 23px;
+    background-color: #007ac3;
+    color: white;
+  }
+
+  .sign-in-form-footer {
+    
+    padding: 15px;
+    text-align: center;
+    
+  }
+
+  .sign-in-cch-name
+  {
+    float: right;
+    margin-top: 2.5vh;
+    font-size: 25px;
+    color: #007fc3;
+  }
+
+  .sign-in-trade-mark
+  {
+    font-size: 13px;
+    position: absolute;
+  }
+
+  label{
+    width: 70%;
+    margin-left: 9%;
+    font-size: 18px;
+  }
+
+  .sign-in-h-sub1{
+      float: left;
+  }
+
+  .sign-in-h-sub2{
+      float: right;
+      color: #007fc3;
+  }
+
+  .sign-in-error{
+    text-align: center;
+    color: red;
+  }
+
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #007ac3;
+    content: "";
+    transition: width 0.2s;
+  }
+  
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+
+  a {
+    color: #007ac3;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }

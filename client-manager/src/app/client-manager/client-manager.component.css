@@ -1,0 +1,40 @@
+.client-manager-container{
+
+}
+
+.client-manager-header{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    height: 5vh;
+    font-weight: bold;
+    color: #007ac3;
+    border-bottom: 1px solid lightgray;
+}
+
+.client-manager-menu-panel{
+    height: 5vh;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5vh;
+    border-bottom: 1px solid lightgray;
+}
+
+.filter-input{
+    width: 5vw;
+}
+
+.toogle-btn:hover{
+    background-color: #007ac3;
+}
+
+.client-menu-icon-text{
+    /* padding-top: 0.7vh;
+    font-weight: 200;
+    font-size: 12px; */
+}
+
+.selected{
+    background-color: #007ac3;
+    color: white;
+}

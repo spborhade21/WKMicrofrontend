@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .notification {
+   
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 20px 5px 0px;
+    position: relative;
+    display: inline-flex;
+    border-radius: 2px;
+    color:black;
+  }
+  
+  .dropup .notification::after,
+.notification::after {
+  display: none !important;
+}
+  
+  .notification .badge {
+    position: absolute;
+    top: 6px;
+    right: 18px;
+    padding: 2.5px 5.5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 9px;
+  }
+
+  .drop-down-item{
+    padding: 0.4vw;
+    height: 6vh;
+    border-bottom: 1px solid lightgray;
+  }
+
+.common-shell-header{
+  background: #007ac3;
+  margin-left: 0px;
+  margin-right: 0px;
+}  
+
+.common-header-menu{
+  text-align: right;
+  padding-right: 2vw;
+  padding-top: 2vh;
+}
+
+.common-header-icon{
+  font-size: 30px;
+}
+
+.common-header-icon-text{
+  margin-left: 1vw;
+    font-size: 15px;
+    color: black;
+    margin-top: 0.5vh;
+}
+
+.common-notification-menu{
+  display: inline-flex;
+}
+
+.common-user-drop-down{
+  position: absolute;
+    right: 0.3vw;
+    height: 15vh;
+    background-color: white;
+    width: 15vw;
+    box-shadow: 2px 14px 13px -6px lightgrey;
+}
+
+.common-user-detail-drp-item{
+  padding: 0.4vw;
+    height: 9vh;
+    font-weight: 800;
+    font-size: 1.5vh;
+    text-align: center;
+}

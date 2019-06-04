@@ -1,0 +1,112 @@
+<div class="tax-manager-container">
+    <div class="tax-manager-header">
+        Returns
+    </div>
+    <div class="tax-manager-menu-panel">
+      <div class="row" style="margin:0px">
+          <div class="col-md-2 client-menu-icon-text" (click)="onDelete()">
+              <button type="button" class="btn btn-lg btn-outline-danger danger-two-tone-button">
+                  Delete Return
+                  <span class="commonglyphs commonglyphs-delete"></span>
+                </button>
+          </div>
+    
+          <div class="col-md-2 client-menu-icon-text">
+              <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="isFilterEnabled">
+                  <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
+                      <input ngbButton type="radio" [value]="true" style="-webkit-appearance: none;"> Show Filter
+                      <span class="commonglyphs commonglyphs-filter"></span>
+                    </label>
+                    <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
+                      <input ngbButton type="radio" [value]="false" style="-webkit-appearance: none;"> Hide Filter
+                      <span class="commonglyphs commonglyphs-filter"></span>
+                    </label>
+              </div>
+          </div>
+          <div class="col-md-2">
+              <button type="button" class="btn btn-lg btn-outline-primary primary-two-tone-button">
+                  Export Data
+                  <span class="commonglyphs commonglyphs-export"></span>
+                </button>
+          </div>
+          <div class="col-md-2 client-menu-icon-text">
+            
+          </div>
+      </div>
+    </div>
+    <div class="tax-manager-grid-area">
+      <table class="table table-sm table-bordered">
+        <thead style="background-color:#f9f9f9">
+          <tr>
+            <th>Client ID</th>
+            <th>Tax Year</th>
+            <th>Name</th>
+            <th>Return ID</th>
+            <th>Return Type</th>
+            <th>Return Group</th>
+            <th>Return Configuration</th>
+            <th>Return Status</th>
+            <th>Signer</th>
+            <th>Last Activity</th>
+            <th>Federal E-File Status</th>
+            <th>Office</th>
+          </tr>
+          <tr *ngIf="isFilterEnabled">
+            <th><input [(ngModel)]="clientId" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="taxYear" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="name" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="returnId" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="returnType" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="returnGroup" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="returnConfiguration" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="returnStatus" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="signer" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="lastAtivity" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="federalEFileStatus" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="office" class="form-control filter-input"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="toggleSelect(return.returnId)" [ngClass]="{'selected':return.isSelected}"
+            *ngFor="let return of returns ">
+            <td>
+              {{return.clientId}}
+            </td>
+            <td>
+              {{return.taxYear}}
+            </td>
+            <td>
+              {{return.name}}
+            </td>
+            <td>
+              {{return.returnId}}
+            </td>
+            <td>
+              {{return.returnType}}
+            </td>
+            <td>
+              {{return.returnGroup}}
+            </td>
+            <td>
+              {{return.returnConfiguration}}
+            </td>
+            <td>
+              {{return.returnStatus}}
+            </td>
+            <td>
+              {{return.signer}}
+            </td>
+            <td>
+              {{return.lastAtivity}}
+            </td>
+            <td>
+              {{return.federalEFileStatus}}
+            </td>
+            <td>
+              {{return.office}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

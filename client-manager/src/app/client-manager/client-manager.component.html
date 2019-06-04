@@ -1,0 +1,118 @@
+<div class="client-manager-container">
+    <div class="client-manager-header">
+        Clients
+    </div>
+    <div class="client-manager-menu-panel">
+      <div class="row">
+        <div class="col-md-2 client-menu-icon-text" (click)="onDelete()">
+            <button type="button" class="btn btn-lg btn-outline-danger danger-two-tone-button">
+                Delete Client
+                <span class="commonglyphs commonglyphs-delete"></span>
+              </button>
+        </div>
+  
+        <div class="col-md-2 client-menu-icon-text">
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="isFilterEnabled">
+              <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
+                <input ngbButton type="radio" [value]="true" style="-webkit-appearance: none;"> Show Filter
+                <span class="commonglyphs commonglyphs-filter"></span>
+              </label>
+              <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
+                <input ngbButton type="radio" [value]="false" style="-webkit-appearance: none;"> Hide Filter
+                <span class="commonglyphs commonglyphs-filter"></span>
+              </label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-lg btn-outline-primary primary-two-tone-button">
+                Export Data
+                <span class="commonglyphs commonglyphs-export"></span>
+              </button>
+        </div>
+        <div class="col-md-2 client-menu-icon-text">
+          
+        </div>
+      </div>
+    </div>
+    <div class="client-manager-grid-area">
+      <table class="table table-sm table-bordered">
+        <thead style="background-color:#f9f9f9">
+          <tr>
+            <th>Client ID</th>
+            <th>Client Sub ID</th>
+            <th>Sort Name</th>
+            <th>Client Sub Description</th>
+            <th>Primary Client</th>
+            <th>Office</th>
+            <th>Business Unit</th>
+            <th>Line of Business</th>
+            <th>Client Type</th>
+            <th>Status</th>
+            <th>Class</th>
+            <th>Year End</th>
+          </tr>
+          <tr *ngIf="isFilterEnabled">
+            <th><input [(ngModel)]="clientId" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="clientSubId" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="clientSortName" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="clientSubDescription" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="primaryClient" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="office" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="businessUnit" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="lineOfBusiness" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="ClientType" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="status" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="class" class="form-control filter-input"></th>
+            <th><input [(ngModel)]="yearEnd" class="form-control filter-input"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="toggleSelect(client.clientId)" [ngClass]="{'selected':client.isSelected}"
+            *ngFor="let client of clients | gridFilter : {clientId:clientId,clientSubId:clientSubId,clientSortName:clientSortName,clientSubDescription:clientSubDescription,primaryClient:primaryClient,office:office,businessUnit:businessUnit,lineOfBusiness:lineOfBusiness,ClientType:ClientType,status:status,class:class,yearEnd:yearEnd}">
+            <td>
+              {{client.clientId}}
+            </td>
+            <td>
+              {{client.clientSubId}}
+            </td>
+            <td>
+              {{client.clientSortName}}
+            </td>
+            <td>
+              {{client.clientSubDescription}}
+            </td>
+            <td>
+              {{client.primaryClient}}
+            </td>
+            <td>
+              {{client.office}}
+            </td>
+            <td>
+              {{client.businessUnit}}
+            </td>
+            <td>
+              {{client.lineOfBusiness}}
+            </td>
+            <td>
+              {{client.ClientType}}
+            </td>
+            <td>
+              {{client.status}}
+            </td>
+            <td>
+              {{client.class}}
+            </td>
+            <td>
+              {{client.yearEnd}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+ 
+
+    

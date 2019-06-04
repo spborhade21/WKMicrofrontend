@@ -1,0 +1,35 @@
+.common-vertical-menu{
+    height: 91%;
+    position: fixed;
+    width: 25%;
+    left: 0;
+    margin-top: 9vh;
+    z-index: 5;
+    box-shadow: 10px 7px 28px -21px black;
+  }
+  
+  .common-header-section{
+    height: 10%;
+    position: fixed;
+    width: 100%;
+  }
+  
+  .common-content-section{
+    width:100%;
+    height:90%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  .common-shell-breadcrumb{
+      height: 42.175px;
+      border-bottom: 1px solid lightgray;
+      font-weight: 800;
+      padding: 1.4vh;
+  }
+
+  #content{
+    margin-top: 16vh;
+    width: 100%;
+    font-size: 14px;
+  }

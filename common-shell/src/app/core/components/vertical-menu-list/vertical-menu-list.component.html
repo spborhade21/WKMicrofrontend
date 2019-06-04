@@ -1,0 +1,17 @@
+<div class="admin-v-menu-container">
+  <div class="admin-v-menu-inner-container">
+      <div class="toggle-switch">
+          <i class="fa fa-th" aria-hidden="true" (click)="hideVerticalMenu()"></i>
+      </div>
+    <div class="admin-v-menu-item" *ngFor="let menu of menuList">
+      <div class="row admin-v-menu-item-row">
+        <div class="col-sm-12">
+            <div class="group-header"><span [ngClass]="menu.icon"></span><span class="group-menu-header-text">{{menu.groupName}}</span></div>
+            <div class="group-sub-menu"> <a href="#/{{menu.linkAddress}}" (click)="onMenuSelected(menu)">
+              {{menu.displayName}}
+            </a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
