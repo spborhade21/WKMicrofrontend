@@ -33,10 +33,10 @@ export class ClientManagerComponent implements OnInit {
   ngOnInit() {
   }
   
-  onDelete()
+  onDelete(clientId)
   {
-    this.clientService.onClientDeleted(this.clients.filter(x=> x.isSelected));
-    this.clients = this.clients.filter(x=> !x.isSelected);
+    this.clientService.onClientDeleted(this.clients.filter(x=> x.clientId == clientId));
+    this.clients = this.clients.filter(x=> x.clientId != clientId);
   }
 
   createDummyClients() {

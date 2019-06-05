@@ -1,3 +1,88 @@
-<p>
-  document-manager works!
-</p>
+<div class="document-manager-container">
+    
+    <div class="document-manager-menu-panel">
+      <div class="row">
+          <button type="button" class="btn btn-lg btn-primary primary-two-tone-button ml-auto">
+              Create Document
+              <span class="commonglyphs commonglyphs-plus"></span>
+            </button>
+      </div>
+    </div>
+    <div class="document-manager-header">
+      Documents
+    </div>
+    <div class="document-manager-grid-area">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Published</th>
+            <th>Discussion</th>
+            <th>Class</th>
+            <th>Sub Class</th>
+            <th>Date Modified</th>
+            <th>Type</th>
+            <th>Size Unit</th>
+            <th>Entity ID</th>
+            <th>Entity Name</th>
+            <th>Folder</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+            *ngFor="let document of documents">
+            <td>
+              <span [ngClass]="{'document-online-circle': document.status}"></span>
+            </td>
+            <td>
+                <span [ngClass]="document.published"></span>
+            </td>
+            <td>
+              {{document.discussion}}
+            </td>
+            <td>
+              {{document.class}}
+            </td>
+            <td>
+              {{document.subClass}}
+            </td>
+            <td>
+              {{
+                [document.dateModified.getMonth()+1,
+                document.dateModified.getDate(),
+                document.dateModified.getFullYear()].join('/')+' '+
+              [document.dateModified.getHours(),
+              document.dateModified.getMinutes(),
+              document.dateModified.getSeconds()].join(':')
+              }}
+            </td>
+            <td>
+              {{document.type}}
+            </td>
+            <td>
+              {{document.size}}
+            </td>
+            <td>
+              {{document.entityId}}
+            </td>
+            <td>
+              {{document.entityName}}
+            </td>
+            <td>
+              {{document.folder}}
+            </td>
+           <td>
+              <span class="text-danger commonglyphs commonglyphs-delete" (click)="onDelete(document.documentId)"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+ 
+
+    

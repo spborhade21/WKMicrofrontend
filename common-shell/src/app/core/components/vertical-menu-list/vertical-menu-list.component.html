@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <div class="group-header"><span [ngClass]="menu.icon"></span><span class="group-menu-header-text">{{menu.groupName}}</span></div>
             <div class="group-sub-menu"> <a href="#/{{menu.linkAddress}}" (click)="onMenuSelected(menu)">
-              {{menu.displayName}}
+             <span class="commonglyphs commonglyphs-arrow-right"></span> {{menu.displayName}}
             </a></div>
         </div>
       </div>

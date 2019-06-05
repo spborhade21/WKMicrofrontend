@@ -2,3 +2,12 @@
 $font-path: '../node_modules/wk-theme/assets/fonts/'; $icon-font-path: "../node_modules/wk-theme/assets/fonts/bootstrap/";
 
 @import '../node_modules/wk-theme/assets/main';
+
+.table th,.table tr,.table td{
+    border: none !important;
+}
+
+.table thead{
+    border: 1px solid lightgray;
+    margin: 1px;
+}

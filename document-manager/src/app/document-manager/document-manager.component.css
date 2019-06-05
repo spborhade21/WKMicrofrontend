@@ -1,0 +1,23 @@
+.document-manager-header{
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    height: 6vh;
+    font-weight: 700;
+    color: #007ac3;
+}
+
+.document-manager-menu-panel{
+    height: 5vh;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5vh;
+}
+
+.document-online-circle{
+    height: 14px;
+    width: 14px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}

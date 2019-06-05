@@ -48,10 +48,10 @@ export class ReturnManagerComponent implements OnInit {
    this.returns.push({clientId:"Ramesh_P",name:"Ramesh_P",returnConfiguration:"Default",returnGroup:"Default",returnId:"2015:test:12",lastAtivity:"Data Changed",signer:"None",office:"WK Office",federalEFileStatus:"",isSelected:false})
  }
 
- onDelete()
+ onDelete(returnId)
   {
-    this.returnService.onReturnDeleted(this.returns.filter(x=> x.isSelected));
-    this.returns = this.returns.filter(x=> !x.isSelected);
+    this.returnService.onReturnDeleted(this.returns.filter(x=> x.returnId == returnId));
+    this.returns = this.returns.filter(x=> x.returnId != returnId);
   }
 
   toggleSelect(returnId)

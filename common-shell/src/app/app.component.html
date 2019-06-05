@@ -8,16 +8,10 @@
                <wk-common-vertical-menu-list [(menuList)]="menuList" (hideSideNavigation)="isVMenuExpanded = false" (changeBreadcrumb)="onBreadCrumbChange($event)"></wk-common-vertical-menu-list>
          </div>
          <div id="content" [ngClass]="{'page-content-Expanded':!isVMenuExpanded,'page-content-collpased':isVMenuExpanded}" #content>
-                  <ol class="breadcrumb" *ngIf="isUserLoggedIn">
-                             <li class="breadcrumb-item">
-                                 <a href="#">{{breadCrumb[0]}}</a>
-                              </li>
-                              <li class="breadcrumb-item active">{{breadCrumb[1]}}</li>
-                            </ol>
-               <client-manager (onClientDeleted)="onClientDeleted($event)"></client-manager>
+               <!-- <client-manager (onClientDeleted)="onClientDeleted($event)"></client-manager>
                <login-manager (onSignInSubmit)="onSignInSubmit($event)"></login-manager>
-               <document-manager></document-manager>
-               <tax-manager (onReturnDeleted)="onReturnDeleted($event)"></tax-manager>
+               <document-manager (onDocumentDeleted)="onDocumentDeleted($event)"></document-manager>
+               <tax-manager (onReturnDeleted)="onReturnDeleted($event)"></tax-manager> -->
          </div> 
  
 </div>

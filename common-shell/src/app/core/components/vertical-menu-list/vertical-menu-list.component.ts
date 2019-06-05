@@ -1,10 +1,11 @@
-import { Component, OnInit,Output,EventEmitter, Input } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter, Input, ViewEncapsulation } from '@angular/core';
 import { Menu } from '../../models/menu.model';
 
 @Component({
   selector: 'wk-common-vertical-menu-list',
   templateUrl: './vertical-menu-list.component.html',
-  styleUrls: ['./vertical-menu-list.component.scss']
+  styleUrls: ['./vertical-menu-list.component.scss'],
+  encapsulation : ViewEncapsulation.None
 })
 export class VerticalMenuListComponent implements OnInit {
   @Input() menuList:Array<Menu>;

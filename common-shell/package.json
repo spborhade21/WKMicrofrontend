@@ -24,13 +24,14 @@
     "@ngxs/storage-plugin": "^3.4.3",
     "@ngxs/store": "^3.4.3",
     "@webcomponents/custom-elements": "^1.2.4",
+    "angular2-uuid": "^1.1.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
     "wk-common-components": "^2.9.3",
     "wk-theme": "^2.1.8",
-    "wk-wizard": "^2.0.5"
+    "wk-wizard": "^2.0.5",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",

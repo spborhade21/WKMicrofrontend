@@ -2,6 +2,9 @@
 {
   font-size: 20px;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .common-trade-mark

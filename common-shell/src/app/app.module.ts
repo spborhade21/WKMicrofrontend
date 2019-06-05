@@ -10,6 +10,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { LoginState } from './core/ngxsStore/states/login.state';
+import { UuidState } from './core/ngxsStore/states/uuid.state'
 import { CoreModule } from './core/core.module'
 
 @NgModule({
@@ -18,7 +19,7 @@ import { CoreModule } from './core/core.module'
   ],
   imports: [
     NgxsModule.forRoot([
-      LoginState
+      LoginState,UuidState
     ]),
     NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),

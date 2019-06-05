@@ -54,19 +54,19 @@ export class IdentityService {
     return [
       {
         displayName:'Return Manager',
-        icon:'commonglyphs axcessglyphs-tax group-menu-icon',
+        icon:'axcessglyphs axcessglyphs-tax group-menu-icon',
         linkAddress:'tax/returnManager',
         groupName:'Tax'
       },
       {
         displayName:'Document Manager',
-        icon:'commonglyphs axcessglyphs-document group-menu-icon',
+        icon:'axcessglyphs axcessglyphs-document group-menu-icon',
         linkAddress:'document/documentManager',
         groupName:'Document'
       },
       {
         displayName:'Client Manager',
-        icon:'commonglyphs axcessglyphs-clients group-menu-icon',
+        icon:'axcessglyphs axcessglyphs-clients group-menu-icon',
         linkAddress:'client/clientManager',
         groupName:'Clients'
       }

@@ -1,42 +1,19 @@
 <div class="client-manager-container">
-    <div class="client-manager-header">
-        Clients
-    </div>
+    
     <div class="client-manager-menu-panel">
       <div class="row">
-        <div class="col-md-2 client-menu-icon-text" (click)="onDelete()">
-            <button type="button" class="btn btn-lg btn-outline-danger danger-two-tone-button">
-                Delete Client
-                <span class="commonglyphs commonglyphs-delete"></span>
-              </button>
-        </div>
-  
-        <div class="col-md-2 client-menu-icon-text">
-            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="isFilterEnabled">
-              <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
-                <input ngbButton type="radio" [value]="true" style="-webkit-appearance: none;"> Show Filter
-                <span class="commonglyphs commonglyphs-filter"></span>
-              </label>
-              <label ngbButtonLabel class="btn-lg btn-outline-primary toogle-btn primary-two-tone-button">
-                <input ngbButton type="radio" [value]="false" style="-webkit-appearance: none;"> Hide Filter
-                <span class="commonglyphs commonglyphs-filter"></span>
-              </label>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-lg btn-outline-primary primary-two-tone-button">
-                Export Data
-                <span class="commonglyphs commonglyphs-export"></span>
-              </button>
-        </div>
-        <div class="col-md-2 client-menu-icon-text">
-          
-        </div>
+          <button type="button" class="btn btn-lg btn-primary primary-two-tone-button ml-auto">
+              Create Client
+              <span class="commonglyphs commonglyphs-plus"></span>
+            </button>
       </div>
     </div>
+    <div class="client-manager-header">
+      Clients
+    </div>
     <div class="client-manager-grid-area">
-      <table class="table table-sm table-bordered">
-        <thead style="background-color:#f9f9f9">
+      <table class="table table-sm">
+        <thead>
           <tr>
             <th>Client ID</th>
             <th>Client Sub ID</th>
@@ -50,25 +27,12 @@
             <th>Status</th>
             <th>Class</th>
             <th>Year End</th>
-          </tr>
-          <tr *ngIf="isFilterEnabled">
-            <th><input [(ngModel)]="clientId" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="clientSubId" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="clientSortName" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="clientSubDescription" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="primaryClient" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="office" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="businessUnit" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="lineOfBusiness" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="ClientType" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="status" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="class" class="form-control filter-input"></th>
-            <th><input [(ngModel)]="yearEnd" class="form-control filter-input"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr (click)="toggleSelect(client.clientId)" [ngClass]="{'selected':client.isSelected}"
-            *ngFor="let client of clients | gridFilter : {clientId:clientId,clientSubId:clientSubId,clientSortName:clientSortName,clientSubDescription:clientSubDescription,primaryClient:primaryClient,office:office,businessUnit:businessUnit,lineOfBusiness:lineOfBusiness,ClientType:ClientType,status:status,class:class,yearEnd:yearEnd}">
+          <tr 
+            *ngFor="let client of clients">
             <td>
               {{client.clientId}}
             </td>
@@ -104,6 +68,9 @@
             </td>
             <td>
               {{client.yearEnd}}
+            </td>
+            <td>
+              <span class="text-danger commonglyphs commonglyphs-delete" (click)="onDelete(client.clientId)"></span>
             </td>
           </tr>
         </tbody>

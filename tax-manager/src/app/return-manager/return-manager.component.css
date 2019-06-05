@@ -1,15 +1,11 @@
-.tax-manager-container{
-
-}
 
 .tax-manager-header{
     width: 100%;
-    text-align: center;
-    font-size: 18px;
-    height: 5vh;
-    font-weight: bold;
+    text-align: left;
+    font-size: 30px;
+    height: 6vh;
+    font-weight: 700;
     color: #007ac3;
-    border-bottom: 1px solid lightgray;
 }
 
 .tax-manager-menu-panel{
@@ -17,7 +13,6 @@
     text-align: center;
     vertical-align: middle;
     padding: 0.5vh;
-    border-bottom: 1px solid lightgray;
 }
 
 .filter-input{
@@ -26,10 +21,6 @@
 
 .toogle-btn:hover{
     background-color: #007ac3;
-}
-
-.tax-menu-icon-text{
-   
 }
 
 .selected{
