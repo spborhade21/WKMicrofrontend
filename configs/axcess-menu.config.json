@@ -1,0 +1,20 @@
+[
+    {
+      "displayName":"Return Manager",
+      "icon":"axcessglyphs axcessglyphs-tax group-menu-icon",
+      "linkAddress":"tax/returnManager",
+      "groupName":"Tax"
+    },
+    {
+      "displayName":"Document Manager",
+      "icon":"axcessglyphs axcessglyphs-document group-menu-icon",
+      "linkAddress":"document/documentManager",
+      "groupName":"Document"
+    },
+    {
+      "displayName":"Client Manager",
+      "icon":"axcessglyphs axcessglyphs-clients group-menu-icon",
+      "linkAddress":"client/clientManager",
+      "groupName":"Clients"
+    }
+  ]

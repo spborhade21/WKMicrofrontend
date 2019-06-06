@@ -1,0 +1,22 @@
+[
+    {
+        "scriptPath":"https://login-manager.azurewebsites.net/login-manager.js",
+        "elementName":"login-manager",
+        "enabled":true
+    },
+    {
+        "scriptPath":"https://tax-manager.azurewebsites.net/tax-manager.js",
+        "elementName":"client-manager",
+        "enabled":true
+    },
+    {
+        "scriptPath":"https://docu-manager.azurewebsites.net/document-manager.js",
+        "elementName":"tax-manager",
+        "enabled":true
+    },
+    {
+        "scriptPath":"https://client-manager.azurewebsites.net/client-manager.js",
+        "elementName":"document-manager",
+        "enabled":true
+    }
+]

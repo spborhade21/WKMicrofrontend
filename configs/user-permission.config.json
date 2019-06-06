@@ -1,0 +1,28 @@
+[
+    {
+      "userName": "prasad.sharma",
+      "accessPoints":[
+        "tax/returnManager",
+        "document/documentManager",
+        "client/clientManager"
+      ],
+      "userId": "1"
+   },
+    {
+      "userName": "pradip.desai",
+      "accessPoints":[
+        "tax/returnManager",
+        "document/documentManager",
+        "client/clientManager"
+      ],
+      "userId": "2"
+   },
+    {
+       "userName": "sanket.borhade",
+       "accessPoints":[
+         "tax/returnManager",
+         "document/documentManager"
+       ],
+       "userId": "3"
+    }
+]

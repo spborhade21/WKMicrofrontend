@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'wk-common-nav-bar',
@@ -6,6 +6,7 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  @Input() lodedModule: string;
   @Output() showSideNavigation: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 

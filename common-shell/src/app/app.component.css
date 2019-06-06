@@ -35,3 +35,11 @@
     width: 100%;
     font-size: 14px;
   }
+
+  .common-loader-spinner{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 3vh;
+  }

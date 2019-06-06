@@ -1,4 +1,4 @@
-import { Component,OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AppConfig } from './app.config';
 import { AddLogin, RemoveLogin } from './core/ngxsStore/actions/login.action';
 import { NotificationServiceService } from './core/services/notification-service/notification-service.service';
@@ -6,10 +6,10 @@ import { IdentityService } from './core/services/identity/identity.service';
 import { LoginState } from './core/ngxsStore/states/login.state'
 import { UuidState } from './core/ngxsStore/states/uuid.state'
 import { Store } from '@ngxs/store';
-import { Router,NavigationStart } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 import { Menu } from './core/models/menu.model';
 import { UUID } from 'angular2-uuid';
-import { AddUuid,RemoveUuid } from './core/ngxsStore/actions/uuid.action';
+import { AddUuid, RemoveUuid } from './core/ngxsStore/actions/uuid.action';
 import { filter } from 'rxjs/operators'
 
 @Component({
@@ -17,14 +17,16 @@ import { filter } from 'rxjs/operators'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit {
+export class AppComponent implements OnInit {
 
   public isVMenuExpanded = false;
   public isUserLoggedIn = false;
   public logoutBtncalled = false;
+  public isLoaderEnabled = false;
   public loggedInUser: string = '';
   public loggedInUserId: string = '';
   public requestedUri: string = '';
+  public loadedModule: string = '';
   public areModulesLoaded: boolean = false;
   public menuList: Array<Menu> = new Array<Menu>();
   public breadCrumb = [];
@@ -32,24 +34,26 @@ export class AppComponent  implements OnInit {
   constructor(private appConfig: AppConfig,
     private notificationServiceService: NotificationServiceService,
     private identityService: IdentityService,
-    private renderer:Renderer2,
+    private renderer: Renderer2,
     private store: Store,
-    private router: Router) {}
+    private router: Router) {this.isLoaderEnabled = false;console.log('loader true'); }
 
   ngOnInit(): void {
     
-    this.appConfig.webApps.forEach((app,index) => {
+    if (!this.isUserLoggedIn)
+      this.generateUUID();
+
+    this.appConfig.webApps.forEach((app, index) => {
       this.load(app);
     });
 
     this.store.select(LoginState.getLogins).subscribe(logins => {
-      if(logins.length > 0)
-      {
+      if (logins.length > 0) {
         this.isUserLoggedIn = true;
         this.loggedInUserId = logins[0].userId;
         this.loggedInUser = logins[0].name;
       }
-      else{
+      else {
         this.isUserLoggedIn = false;
         this.loggedInUserId = '';
         this.loggedInUser = '';
@@ -57,50 +61,65 @@ export class AppComponent  implements OnInit {
         this.menuList = [];
       }
       this.onLoginStateSelection();
-  });
+    });
 
-  this.store.select(UuidState.getUuids).subscribe(uuids => {
-    if(uuids.length > 0 )
-      this.requestedUri = uuids[0].urlRequested;
-    else
-      this.requestedUri = '';
-   });
+    this.store.select(UuidState.getUuids).subscribe(uuids => {
+      if (uuids.length > 0) {
+        this.requestedUri = uuids[uuids.length-1].urlRequested;
+        this.loadedModule = uuids[uuids.length-1].moduleName;
+      }
+      else {
+        this.requestedUri = '';
+        this.loadedModule = '';
+      }
 
-   this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe((navigationObj: NavigationStart) => {
+    });
+
+    this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe((navigationObj: NavigationStart) => {
       if (!this.isUserLoggedIn) {
         this.onLoginStateSelection();
       }
       else
-      this.loadRequiredData();
+      {
+        this.loadedModule = this.getModuleName();
+        this.loadRequiredData();
+      }
+        
     });
 
-   this.onLoginStateSelection();
+    this.onLoginStateSelection();
   }
 
-  generateUUID(url){
-    if(url != '/#/login/signin' && !this.logoutBtncalled)
-    {
-      let uuidValue= UUID.UUID();
-      this.store.dispatch(new AddUuid({urlRequested:url,isValid:true,uuid:uuidValue}));
+  generateUUID() {
+    let url = window.location.href.substr(window.location.href.indexOf('#') - 1, window.location.href.length - 1);
+    if (url != '/#/login/signin' && !this.logoutBtncalled) {
+      let moduleName = this.getModuleName();
+      let uuidValue = UUID.UUID();
+      this.store.dispatch(new AddUuid({ urlRequested: url, isValid: true, uuid: uuidValue,moduleName:moduleName }));
     }
+  }
+
+  getModuleName()
+  {
+    let url = window.location.href;
+    let link = url.substr(url.indexOf('#') + 2 ,url.length - 1);
+      let menuDetail = this.appConfig.axcessMenus.filter(x=>x.linkAddress == link)[0];
+      return menuDetail.displayName;
   }
 
   onLoginStateSelection() {
     if (!this.isUserLoggedIn) {
-      this.generateUUID(window.location.href.substr(window.location.href.indexOf('#')-1,window.location.href.length-1));
       this.logoutBtncalled = false;
       this.navigateTo('/#/login/signin')
     }
     else {
-      if(this.requestedUri != '')
-        {
-          this.loadRequiredData();
-          this.navigateTo(this.requestedUri);
-        }
-        else
-        {
-          this.navigateTo('/#/document/documentManager');
-        }
+      if (this.requestedUri != '') {
+        this.loadRequiredData();
+        this.navigateTo(this.requestedUri);
+      }
+      else {
+        this.navigateTo('/#/document/documentManager');
+      }
     }
   }
 
@@ -111,31 +130,27 @@ export class AppComponent  implements OnInit {
     this.store.dispatch(new AddLogin({ name: userName, isValid: isValid, userId: userId }));
   }
 
-  onClientDeleted(event)
-  {
-    event.detail.forEach(c=>{
-        this.notificationServiceService.push(`${c.clientId} deleted from <b>client module</b>.`);
+  onClientDeleted(event) {
+    event.detail.forEach(c => {
+      this.notificationServiceService.push(`${c.clientId} deleted from <b>client module</b>.`);
     })
   }
 
-  onReturnDeleted(event)
-  {
-    event.detail.forEach(c=>{
-        this.notificationServiceService.push(`${c.returnId} deleted from <b>return module</b>.`);
+  onReturnDeleted(event) {
+    event.detail.forEach(c => {
+      this.notificationServiceService.push(`${c.returnId} deleted from <b>return module</b>.`);
     })
   }
 
-  onDocumentDeleted(event)
-  {
-    event.detail.forEach(c=>{
-        this.notificationServiceService.push(`${c.entityId} deleted from <b>document module</b>.`);
+  onDocumentDeleted(event) {
+    event.detail.forEach(c => {
+      this.notificationServiceService.push(`${c.entityId} deleted from <b>document module</b>.`);
     })
   }
 
-  onBreadCrumbChange(data)
-  {
-      this.breadCrumb = [];
-      this.breadCrumb.push(...data);
+  onBreadCrumbChange(data) {
+    this.breadCrumb = [];
+    this.breadCrumb.push(...data);
   }
 
   navigateTo(urlToNavigate) {
@@ -152,8 +167,8 @@ export class AppComponent  implements OnInit {
 
   loadRequiredData() {
     this.menuList = [];
-    let menuDetails = this.identityService.getMenuDetails();
-    let identity = this.identityService.getUserData().filter(x => x.userId == this.loggedInUserId);
+    let menuDetails = this.appConfig.axcessMenus;
+    let identity = this.appConfig.userPermissions.filter(x => x.userId == this.loggedInUserId);
     if (identity.length > 0) {
       identity[0].accessPoints.forEach(url => {
         this.menuList.push(menuDetails.filter(x => x.linkAddress == url)[0]);
@@ -167,33 +182,32 @@ export class AppComponent  implements OnInit {
     this.store.dispatch(new RemoveLogin(this.loggedInUser));
   }
 
+  load(app: any): void {
+    if (!app.enabled) {
+      console.log(`Config Item ${app.elementName} is not enabled and will not be loaded`);
+      return;
+    }
+    const content = document.getElementById('content');
 
+    const webAppElement: HTMLElement = document.createElement(app.elementName);
+    webAppElement.addEventListener('onSignInSubmit', this.onSignInSubmit.bind(this));
+    webAppElement.addEventListener('onClientDeleted', this.onClientDeleted.bind(this));
+    webAppElement.addEventListener('onDocumentDeleted', this.onDocumentDeleted.bind(this));
+    webAppElement.addEventListener('onReturnDeleted', this.onReturnDeleted.bind(this));
+    content.appendChild(webAppElement);
 
-
-public load(app: any): void {
-  if (!app.enabled) {
-    console.log(`Config Item ${app.elementName} is not enabled and will not be loaded`);
-    return;
+    const script = document.createElement('script');
+    script.src = app.scriptPath;
+    script.onload = this.onScriptLoaded;
+    content.appendChild(script);
+    script.onerror = () => console.error(`error loading ${app.scriptPath}`);
   }
-  const content = document.getElementById('content');
- 
-  const webAppElement: HTMLElement = document.createElement(app.elementName);
-  webAppElement.addEventListener('onSignInSubmit', this.onSignInSubmit.bind(this));
-  webAppElement.addEventListener('onClientDeleted', this.onClientDeleted.bind(this));
-  webAppElement.addEventListener('onDocumentDeleted', this.onDocumentDeleted.bind(this));
-  webAppElement.addEventListener('onReturnDeleted', this.onReturnDeleted.bind(this));
-  content.appendChild(webAppElement);
-  
-  const script = document.createElement('script');
-  script.src = app.scriptPath;
-  script.onload = function(){ eval('delete window.webpackJsonp'); };
-  content.appendChild(script);
 
-  const scriptDelete = document.createElement('script');
-  scriptDelete.innerHTML = "delete window.webpackJsonp";
-  content.appendChild(scriptDelete);
-  script.onerror = () => console.error(`error loading ${app.scriptPath}`);
-}
-
+  public onScriptLoaded()
+  {
+    eval('delete window.webpackJsonp'); 
+    this.isLoaderEnabled = false; 
+    console.log('loader false');
+  }
 
 }
