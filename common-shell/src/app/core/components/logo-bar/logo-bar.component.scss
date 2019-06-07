@@ -30,9 +30,24 @@ body {
   }
 
   .drop-down-item{
-    padding: 0.4vw;
-    height: 6vh;
-    border-bottom: 1px solid lightgray;
+    max-height: 30vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    font-size: 0.8vw;
+  }
+
+  .dropdown-item , .dropdown-menu.show:hover{
+    background-color: white !important;
+  }
+
+  .notification-dropdown-menu-row{
+    height: 4vh !important;
+    padding: 7px;
+    border-top: 1px solid lightgray;
+  }
+
+  .notification-dropdown-menu-row:hover{
+    background-color: lightgray;
   }
 
 .common-shell-header{
@@ -77,4 +92,19 @@ body {
     font-weight: 800;
     font-size: 1.5vh;
     text-align: center;
+}
+
+::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border: 0px solid gray;
+  border-radius: 10px !important;
 }

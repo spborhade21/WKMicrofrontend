@@ -1,4 +1,4 @@
 {
-    "appService.deploySubpath": "configs",
-    "appService.defaultWebAppToDeploy": "/subscriptions/2659a13b-e32d-4828-8d5a-4755e8f28cb3/resourceGroups/appsvc_rg_windows_centralus/providers/Microsoft.Web/sites/Config-Manager"
+    "appService.deploySubpath": "client-manager\\angularElements",
+    "appService.defaultWebAppToDeploy": "/subscriptions/2659a13b-e32d-4828-8d5a-4755e8f28cb3/resourceGroups/appsvc_rg_windows_centralus/providers/Microsoft.Web/sites/Client-Manager"
 }

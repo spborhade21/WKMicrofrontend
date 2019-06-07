@@ -1,16 +1,13 @@
 <div class="common-header-section" *ngIf="isUserLoggedIn">
       <wk-common-logo-bar [loggedInUser]="loggedInUser" (onLogOutUser)="logOutUser()"></wk-common-logo-bar>
-      <wk-common-nav-bar (showSideNavigation)="isVMenuExpanded = true" [lodedModule]="loadedModule"></wk-common-nav-bar>
+      <wk-common-nav-bar (showSideNavigation)="isVMenuExpanded = true" [(menuList)]="menuList" [lodedModule]="loadedModule"></wk-common-nav-bar>
 </div>
 
 <div class="row common-content-section">
-       <div class="common-vertical-menu" *ngIf="isUserLoggedIn && isVMenuExpanded">
-               <wk-common-vertical-menu-list [(menuList)]="menuList" (hideSideNavigation)="isVMenuExpanded = false" (changeBreadcrumb)="onBreadCrumbChange($event)"></wk-common-vertical-menu-list>
-         </div>
-         <div id="content" [ngClass]="{'page-content-Expanded':!isVMenuExpanded,'page-content-collpased':isVMenuExpanded}" #content>
-         </div> 
+   <div id="content" [ngClass]="{'page-content-Expanded':!isVMenuExpanded,'page-content-collpased':isVMenuExpanded}" #content>
+   </div> 
 </div>
 
 <div class="common-loader-spinner" *ngIf="isLoaderEnabled">
-            <span class="commonglyphs commonglyphs-loader loader"></span>
+    <span class="commonglyphs commonglyphs-loader loader"></span>
 </div>

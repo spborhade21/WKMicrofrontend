@@ -4,7 +4,7 @@ import { ClientManagerComponent } from './client-manager/client-manager.componen
 import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
-  {path:'client/clientManager',component:ClientManagerComponent,pathMatch:'prefix'},
+  {path:'client/clientManager',component:ClientManagerComponent},
   {path:'**',component:BlankComponent}
 ];
 

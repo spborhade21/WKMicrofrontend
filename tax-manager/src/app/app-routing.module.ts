@@ -4,8 +4,8 @@ import { ReturnManagerComponent } from './return-manager/return-manager.componen
 import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
-  {path:'tax/returnManager',component:ReturnManagerComponent,pathMatch:'prefix'},
-  {path:'**',component:BlankComponent,pathMatch:'prefix'}
+  {path:'tax/returnManager',component:ReturnManagerComponent},
+  {path:'**',component:BlankComponent}
 ];
 
 @NgModule({

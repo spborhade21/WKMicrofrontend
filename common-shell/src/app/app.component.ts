@@ -103,8 +103,11 @@ export class AppComponent implements OnInit {
   {
     let url = window.location.href;
     let link = url.substr(url.indexOf('#') + 2 ,url.length - 1);
-      let menuDetail = this.appConfig.axcessMenus.filter(x=>x.linkAddress == link)[0];
-      return menuDetail.displayName;
+      let menuDetail = this.appConfig.axcessMenus.filter(x=>x.linkAddress == link);
+      if(menuDetail.length > 0)
+        return menuDetail[0].displayName;
+      else
+        return '';  
   }
 
   onLoginStateSelection() {
@@ -132,19 +135,19 @@ export class AppComponent implements OnInit {
 
   onClientDeleted(event) {
     event.detail.forEach(c => {
-      this.notificationServiceService.push(`${c.clientId} deleted from <b>client module</b>.`);
+      this.notificationServiceService.push(`${c.clientId} deleted from client module.`);
     })
   }
 
   onReturnDeleted(event) {
     event.detail.forEach(c => {
-      this.notificationServiceService.push(`${c.returnId} deleted from <b>return module</b>.`);
+      this.notificationServiceService.push(`${c.returnId} deleted from return module.`);
     })
   }
 
   onDocumentDeleted(event) {
     event.detail.forEach(c => {
-      this.notificationServiceService.push(`${c.entityId} deleted from <b>document module</b>.`);
+      this.notificationServiceService.push(`${c.entityId} deleted from document module.`);
     })
   }
 
