@@ -4,7 +4,7 @@ import { DocumentManagerComponent } from './document-manager/document-manager.co
 import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
-  {path:'document/documentManager',component:DocumentManagerComponent},
+  {path:'axcess-modules/document-manager',component:DocumentManagerComponent},
   {path:'**',component:BlankComponent}
 ];
 

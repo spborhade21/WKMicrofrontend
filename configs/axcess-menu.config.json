@@ -2,19 +2,19 @@
     {
       "displayName":"Return Manager",
       "icon":"axcessglyphs axcessglyphs-tax group-menu-icon",
-      "linkAddress":"tax/returnManager",
+      "linkAddress":"axcess-modules/return-manager",
       "groupName":"Tax"
     },
     {
       "displayName":"Document Manager",
       "icon":"axcessglyphs axcessglyphs-document group-menu-icon",
-      "linkAddress":"document/documentManager",
+      "linkAddress":"axcess-modules/document-manager",
       "groupName":"Document"
     },
     {
       "displayName":"Client Manager",
       "icon":"axcessglyphs axcessglyphs-clients group-menu-icon",
-      "linkAddress":"client/clientManager",
+      "linkAddress":"axcess-modules/client-manager",
       "groupName":"Clients"
     }
   ]

@@ -43,7 +43,6 @@ body {
   .notification-dropdown-menu-row{
     height: 4vh !important;
     padding: 7px;
-    border-top: 1px solid lightgray;
   }
 
   .notification-dropdown-menu-row:hover{
@@ -89,9 +88,18 @@ body {
 .common-user-detail-drp-item{
   padding: 0.4vw;
     height: 9vh;
-    font-weight: 800;
+    font-weight: 400;
+    color: #007ac3;
     font-size: 1.5vh;
     text-align: center;
+}
+
+.notification-dropdown-header{
+    text-align: center;
+    color: #007ac3;
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid lightgray;
 }
 
 ::-webkit-scrollbar-track {

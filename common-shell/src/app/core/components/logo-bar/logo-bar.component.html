@@ -12,6 +12,7 @@
                 *ngIf="unseenNotifications && unseenNotifications.length > 0">{{unseenNotifications.length}}</span>
             </a>
             <div ngbDropdownMenu aria-labelledby="dropdownNotification">
+                <span class="drop-down-item notification-dropdown-header" ngbDropdownItem>Notifications</span>
               <span class="drop-down-item" ngbDropdownItem>
                 
                 <div class="row notification-dropdown-menu-row"  *ngFor="let item of unseenNotifications">
@@ -38,7 +39,7 @@
                   {{loggedInUser}}@wolterskluwer.com
               </div>
               <div style="margin-top: 2vh">
-                  <button type="button" class="btn btn-lg btn-outline-primary primary-two-tone-button" (click)="logOutUser()">
+                  <button type="button" class="btn btn-lg btn-outline-danger danger-two-tone-button" (click)="logOutUser()">
                       Logout
                       <span class="commonglyphs commonglyphs-logout"></span>
                     </button>

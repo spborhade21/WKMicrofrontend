@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
         this.navigateTo(this.requestedUri);
       }
       else {
-        this.navigateTo('/#/document/documentManager');
+        this.navigateTo('/#/axcess-modules/document-manager');
       }
     }
   }
@@ -206,7 +206,7 @@ export class AppComponent implements OnInit {
     script.onerror = () => console.error(`error loading ${app.scriptPath}`);
   }
 
-  public onScriptLoaded()
+  onScriptLoaded()
   {
     eval('delete window.webpackJsonp'); 
     this.isLoaderEnabled = false; 

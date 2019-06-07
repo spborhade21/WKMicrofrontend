@@ -2,26 +2,26 @@
     {
       "userName": "prasad.sharma",
       "accessPoints":[
-        "tax/returnManager",
-        "document/documentManager",
-        "client/clientManager"
+        "axcess-modules/return-manager",
+        "axcess-modules/document-manager",
+        "axcess-modules/client-manager"
       ],
       "userId": "1"
    },
     {
       "userName": "pradip.desai",
       "accessPoints":[
-        "tax/returnManager",
-        "document/documentManager",
-        "client/clientManager"
+        "axcess-modules/return-manager",
+        "axcess-modules/document-manager",
+        "axcess-modules/client-manager"
       ],
       "userId": "2"
    },
     {
        "userName": "sanket.borhade",
        "accessPoints":[
-         "tax/returnManager",
-         "document/documentManager"
+        "axcess-modules/document-manager",
+        "axcess-modules/client-manager"
        ],
        "userId": "3"
     }

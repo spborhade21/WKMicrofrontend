@@ -4,7 +4,7 @@ import { ClientManagerComponent } from './client-manager/client-manager.componen
 import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
-  {path:'client/clientManager',component:ClientManagerComponent},
+  {path:'axcess-modules/client-manager',component:ClientManagerComponent},
   {path:'**',component:BlankComponent}
 ];
 
