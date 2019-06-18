@@ -1,0 +1,26 @@
+<form class="form-horizontal" role="form" name="editOUForm" novalidate>
+    <div class="form-group" >
+        <div class="col-sm-3">
+        
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="ouId" name="ouId" placeholder="id" class="form-control" ng-model="ouId" required />
+            <span class="help-block" ng-show="editOUForm.ouId.$touched && editOUForm.ouId.$invalid">Please enter organizational unit's id.</span>
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="ouName" name="ouName" placeholder="name" class="form-control" ng-model="ouName" required />
+            <span ng-show="editOUForm.ouName.$touched && editOUForm.ouName.$error.required">Please enter organizational unit's name.</span>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+    
+    <input type="submit" value="Change Name" class="btn btn-primary col-sm-offset-3" ng-click="changeName(ouId,ouName)" />
+</form>

@@ -156,6 +156,12 @@ export class AppComponent implements OnInit {
     this.breadCrumb.push(...data);
   }
 
+  onOUChanged(event) {
+    event.detail.forEach(c => {
+      this.notificationServiceService.push(`name of organizational unit with id ${c.id} changed to ${c.name}.`);
+    })
+  }
+
   navigateTo(urlToNavigate) {
     let url = window.location.href;
     let host = window.location.hostname;
@@ -197,6 +203,7 @@ export class AppComponent implements OnInit {
     webAppElement.addEventListener('onClientDeleted', this.onClientDeleted.bind(this));
     webAppElement.addEventListener('onDocumentDeleted', this.onDocumentDeleted.bind(this));
     webAppElement.addEventListener('onReturnDeleted', this.onReturnDeleted.bind(this));
+    webAppElement.addEventListener('onOUChanged', this.onOUChanged.bind(this));
     content.appendChild(webAppElement);
 
     const script = document.createElement('script');
