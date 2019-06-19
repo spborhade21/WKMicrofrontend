@@ -18,5 +18,10 @@
         "scriptPath":"https://client-manager.azurewebsites.net/client-manager.js",
         "elementName":"document-manager",
         "enabled":true
+    },
+    {
+        "scriptPath":"https://firm-manager.azurewebsites.net/firm-manager.js",
+        "elementName":"firm-manager",
+        "enabled":true
     }
 ]

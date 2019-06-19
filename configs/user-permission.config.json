@@ -4,7 +4,8 @@
       "accessPoints":[
         "axcess-modules/return-manager",
         "axcess-modules/document-manager",
-        "axcess-modules/client-manager"
+        "axcess-modules/client-manager",
+        "axcess-modules/firm-manager"
       ],
       "userId": "1"
    },
@@ -13,7 +14,8 @@
       "accessPoints":[
         "axcess-modules/return-manager",
         "axcess-modules/document-manager",
-        "axcess-modules/client-manager"
+        "axcess-modules/client-manager",
+        "axcess-modules/firm-manager"
       ],
       "userId": "2"
    },

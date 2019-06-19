@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA,Injector } from '@angular/core';
 import {RouterModule, Router} from '@angular/router';
 import { AppComponent } from './app.component';
 import {UpgradeModule,downgradeComponent} from '@angular/upgrade/static';
 import { WindowRef } from './app.window-ref';
+import { createCustomElement } from '@angular/elements'; 
 
 @NgModule({
   declarations: [
@@ -11,24 +12,20 @@ import { WindowRef } from './app.window-ref';
   ],
   imports: [
     BrowserModule,
-    UpgradeModule,
-    RouterModule.forRoot(
-      [
-        {
-          path: 'axcess-modules/firm-manager/editOU',
-          pathMatch: 'full',
-          redirectTo: 'editOrganizationalUnits.html'
-        }
-    ],
-    {
-      useHash: true,
-      enableTracing: true
-    }
-    )
+    UpgradeModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [WindowRef],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   entryComponents:[AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector:Injector) {
+   
+  }
+  public  ngDoBootstrap() {
+    const clientManagerCustomElement = createCustomElement(AppComponent, { injector: this.injector})
+    if(!customElements.get('firm-manager'))
+      customElements.define('firm-manager', clientManagerCustomElement);
+  }
+ }

@@ -12,17 +12,34 @@ export class AppComponent implements OnInit {
   title = 'app';
   @Output()
   onOUChanged:EventEmitter<any>= new EventEmitter();
-  constructor(public upgrade: UpgradeModule,private router:Router,private windowRef:WindowRef)
-  {}
+  constructor(public upgrade: UpgradeModule,private windowRef:WindowRef)
+  {
+    
+    
+    
+  }
   ngOnInit(): void {
     
     let id = document.getElementById('firmContainer');
         this.upgrade.bootstrap(id,['ngOrganizationalUnits'], { strictDi: false });
-       this.router.initialNavigation();    
+      
+        let event = new CustomEvent(
+          "setOfficeData", 
+          {
+            detail: {
+              data: [{id:'1',value:'main office'},{id:'2',value:'wk office'}],
+              time: new Date(),
+            },
+            bubbles: true,
+            cancelable: true
+          }
+        );
+        
+        id.dispatchEvent(event);
+
        this.windowRef.nativeWindow['changedNameOfOU'] = function(id,name)
         {
           alert(`name of organizational unit with id ${id} changed to ${name}.`);
-          console.log([{id:id,name:name}]);
           this.onOUChanged = new EventEmitter();
           this.onOUChanged.emit([{id:id,name:name}]);
         }

@@ -16,5 +16,11 @@
       "icon":"axcessglyphs axcessglyphs-clients group-menu-icon",
       "linkAddress":"axcess-modules/client-manager",
       "groupName":"Clients"
+    },
+    {
+      "displayName":"Firm Manager",
+      "icon":"axcessglyphs axcessglyphs-firm group-menu-icon",
+      "linkAddress":"axcess-modules/firm-manager",
+      "groupName":"Firm"
     }
   ]

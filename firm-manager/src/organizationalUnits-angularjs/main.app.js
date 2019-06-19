@@ -1,30 +1,65 @@
 var app = angular.module('ngOrganizationalUnits', ['ngRoute']);
 
-app.config(function ($routeProvider,$locationProvider ) {
-     
-    $routeProvider.when('/', {
-        templateUrl: '/editOrganizationalUnits.html',
-        controller: 'OUController'
-    }).when('/axcess-modules/firm-manager/editOU', {
-        templateUrl: '/editOrganizationalUnits.html',
-        controller: 'OUController'
-    }).when('/module-home', {
-        template: '<firm-module></firm-module>',
-    }).otherwise({
-        redirectTo: "/"
-    });
-  
+app.config(function ($routeProvider, $locationProvider) {
+
+    $routeProvider.when('/axcess-modules/firm-manager',
+        {
+            templateUrl: '/organizational-units.html',
+            controller: 'OUController'
+        }
+    ).when('/axcess-modules/firm-manager/editOU/:id',
+        {
+            templateUrl: '/edit-organizational-units.html',
+            controller: 'OUEditController'
+        }).when('/module-home', {
+            template: '<firm-module></firm-module>',
+        }).otherwise({
+            redirectTo: "/axcess-modules/firm-manager"
+        });
+
     $locationProvider.html5Mode(false);
 });
 
-app.controller("OUController", function ($scope, $location,$rootScope) {
-    $scope.changeName = function (id,newName) {
-        window.changedNameOfOU(id,newName);
+app.controller("OUController", function ($scope, $location,organizationalUnitService) {
+
+    document.addEventListener("setOfficeData", function(event)
+    {
+        $scope.data = event.detail.data;
+        organizationalUnitService.setData($scope.data);
+    }, false);
+
+    if(!$scope.data)
+      $scope.data = organizationalUnitService.getData();
+      
+    $scope.onEditClicked = function (id) {
+        $location.path('/axcess-modules/firm-manager/editOU/' + id)
+    }
+    
+});
+
+
+app.controller("OUEditController", function ($scope, $routeParams,organizationalUnitService) {
+
+    $scope.data = organizationalUnitService.getData();
+
+    $scope.ouId = $routeParams.id;
+    $scope.ouName = $scope.data.filter(function (office) {
+        return (office.id == $routeParams.id);
+    })[0].value;
+
+    $scope.changeName = function (id, newName) {
+        window.changedNameOfOU(id, newName);
     };
 });
 
-app.service('organizationalUnitService', function() {
-    this.getData = function () {
-      return true;
+app.service('organizationalUnitService', function () {
+    this.data = [];
+  
+    this.setData = function(data){
+        this.data = data;
     }
-  });
+
+    this.getData = function () {
+        return this.data;
+    }
+});
