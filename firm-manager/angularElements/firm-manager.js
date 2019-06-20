@@ -94012,7 +94012,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".firm-manager-header{\r\n    margin: 0 auto;\r\n}"
+module.exports = ".firm-manager-header{\r\n    margin: 0 auto;\r\n}\r\n\r\n.firm-water-mark{\r\n    margin: 0 auto;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    z-index: 1;\r\n    opacity: 0.1;\r\n    -webkit-transform: translate(-50%,-50%);\r\n            transform: translate(-50%,-50%);\r\n    font-size: 54px !important;\r\n}"
 
 /***/ }),
 
@@ -94023,7 +94023,7 @@ module.exports = ".firm-manager-header{\r\n    margin: 0 auto;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"firmContainer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"firm-manager-header\">\n          <h1>AngularJs Application</h1>\n      </div>\n        \n    </div>\n    <div ng-view>\n    </div>\n  </div>\n\n</div>"
+module.exports = "<div id=\"firmContainer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"firm-manager-header\">\n          <h1>Organizational Units</h1>\n      </div>\n        \n    </div>\n    <div ng-view>\n    </div>\n  </div>\n\n</div>\n\n<div class=\"firm-water-mark\">\n    AngularJs Application\n</div>"
 
 /***/ }),
 

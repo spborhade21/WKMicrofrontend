@@ -18,7 +18,7 @@
       "groupName":"Clients"
     },
     {
-      "displayName":"Firm Manager",
+      "displayName":"Organizational Units",
       "icon":"axcessglyphs axcessglyphs-firm group-menu-icon",
       "linkAddress":"axcess-modules/firm-manager",
       "groupName":"Firm"
