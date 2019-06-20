@@ -12,6 +12,7 @@ import { NgxsModule } from '@ngxs/store';
 import { LoginState } from './core/ngxsStore/states/login.state';
 import { UuidState } from './core/ngxsStore/states/uuid.state'
 import { CoreModule } from './core/core.module'
+import {UpgradeModule} from '@angular/upgrade/static';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CoreModule } from './core/core.module'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    UpgradeModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

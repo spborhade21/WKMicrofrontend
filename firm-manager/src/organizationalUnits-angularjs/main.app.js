@@ -14,7 +14,8 @@ app.config(function ($routeProvider, $locationProvider) {
         }).when('/module-home', {
             template: '<firm-module></firm-module>',
         }).otherwise({
-            redirectTo: "/axcess-modules/firm-manager"
+            template: ''
+            
         });
 
     $locationProvider.html5Mode(false);
@@ -48,7 +49,18 @@ app.controller("OUEditController", function ($scope, $routeParams,organizational
     })[0].value;
 
     $scope.changeName = function (id, newName) {
-        window.changedNameOfOU(id, newName);
+        var event = new CustomEvent(
+            "changedFirmData", 
+            {
+              detail: {
+                data: {id:id,value:newName},
+                time: new Date(),
+              },
+              bubbles: true,
+              cancelable: true
+            }
+          );
+        document.getElementById('firmContainer').dispatchEvent(event);
     };
 });
 

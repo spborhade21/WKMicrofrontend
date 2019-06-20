@@ -1,4 +1,4 @@
 {
-    "appService.deploySubpath": "configs",
-    "appService.defaultWebAppToDeploy": "/subscriptions/8cd35b61-a0a9-4e39-849e-0e69b8a995de/resourceGroups/rgMicrofrontend/providers/Microsoft.Web/sites/Config-Manager"
+    "appService.deploySubpath": "firm-manager\\angularElements",
+    "appService.defaultWebAppToDeploy": "/subscriptions/8cd35b61-a0a9-4e39-849e-0e69b8a995de/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Firm-Manager"
 }
