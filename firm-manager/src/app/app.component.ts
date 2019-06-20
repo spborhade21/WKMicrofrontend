@@ -13,10 +13,11 @@ export class AppComponent implements OnInit {
   title = 'app';
   @Output()
   onOUChanged:EventEmitter<any>= new EventEmitter();
-  constructor(private firmService:FirmService)
+  constructor(private firmService:FirmService,private router:Router)
   {
   }
   ngOnInit(): void {
+    this.router.initialNavigation();
     this.subScribeEvents();
   }
 

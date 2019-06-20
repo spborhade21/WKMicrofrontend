@@ -11,6 +11,7 @@ import { Menu } from './core/models/menu.model';
 import { UUID } from 'angular2-uuid';
 import { AddUuid, RemoveUuid } from './core/ngxsStore/actions/uuid.action';
 import { filter } from 'rxjs/operators'
+import { Firm } from './core/models/firm.model';
 
 @Component({
   selector: 'wk-root',
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
     private router: Router) {this.isLoaderEnabled = false;console.log('loader true'); }
 
   ngOnInit(): void {
+    this.loadOfficeData();
     
     if (!this.isUserLoggedIn)
       this.generateUUID();
@@ -88,6 +90,20 @@ export class AppComponent implements OnInit {
     });
 
     this.onLoginStateSelection();
+  }
+
+  loadOfficeData()
+  {
+    let firms = Array<Firm>();
+    let firm1 = new Firm();
+    firm1.id = '1';
+    firm1.name = 'main office';
+    firms.push(firm1);
+    let firm2 = new Firm();
+    firm2.id = '2';
+    firm2.name = 'wk office';
+    firms.push(firm2);
+    window.localStorage.setItem('firms',JSON.stringify(firms));
   }
 
   generateUUID() {

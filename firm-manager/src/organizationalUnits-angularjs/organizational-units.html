@@ -1,4 +1,4 @@
-<div class="card">
+<div>
     <table class="table table-hover">
         <thead>
             <th>
@@ -14,8 +14,12 @@
         <tbody>
             <tr ng-repeat="office in data">
                 <td>{{office.id}}</td>
-                <td>{{office.value}}</td>
-                <td><a href="javascript:void(0);" ng-click="onEditClicked(office.id)">edit</a></td>
+                <td>{{office.name}}</td>
+                <td>
+                    <a href="javascript:void(0);" ng-click="onEditClicked(office.id)">
+                        <span class="commonglyphs commonglyphs-edit-paper"></span>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

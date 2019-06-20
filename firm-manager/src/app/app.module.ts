@@ -26,16 +26,16 @@ import {  HttpClientModule } from '@angular/common/http';
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [WindowRef],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   entryComponents:[AppComponent]
 })
 export class AppModule {
   constructor(private injector:Injector) {
    
   }
-  // public  ngDoBootstrap() {
-  //   const firmManagerCustomElement = createCustomElement(AppComponent, { injector: this.injector})
-  //   if(!customElements.get('firm-manager'))
-  //     customElements.define('firm-manager', firmManagerCustomElement);
-  // }
+  public  ngDoBootstrap() {
+    const firmManagerCustomElement = createCustomElement(AppComponent, { injector: this.injector})
+    if(!customElements.get('firm-manager'))
+      customElements.define('firm-manager', firmManagerCustomElement);
+  }
  }

@@ -33,27 +33,27 @@ app.controller("OUController", function ($scope, $location,organizationalUnitSer
       $scope.data = organizationalUnitService.getData();
       
     $scope.onEditClicked = function (id) {
-        $location.path('/axcess-modules/firm-manager/editOU/' + id)
+        $location.path('/axcess-modules/firm-manager/editOU/' + id);
     }
     
 });
 
 
-app.controller("OUEditController", function ($scope, $routeParams,organizationalUnitService) {
+app.controller("OUEditController", function ($scope, $routeParams,organizationalUnitService, $location) {
 
     $scope.data = organizationalUnitService.getData();
 
     $scope.ouId = $routeParams.id;
     $scope.ouName = $scope.data.filter(function (office) {
         return (office.id == $routeParams.id);
-    })[0].value;
+    })[0].name;
 
     $scope.changeName = function (id, newName) {
         var event = new CustomEvent(
             "changedFirmData", 
             {
               detail: {
-                data: {id:id,value:newName},
+                data: {id:id,name:newName},
                 time: new Date(),
               },
               bubbles: true,
@@ -61,6 +61,14 @@ app.controller("OUEditController", function ($scope, $routeParams,organizational
             }
           );
         document.getElementById('firmContainer').dispatchEvent(event);
+        $scope.data.forEach(function(item){
+            if(item.id == id){
+                item.name = newName;
+            }
+        });
+        organizationalUnitService.setData($scope.data);
+
+        $location.path('/axcess-modules/firm-manager');
     };
 });
 

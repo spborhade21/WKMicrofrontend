@@ -11,3 +11,7 @@ $font-path: '../node_modules/wk-theme/assets/fonts/'; $icon-font-path: "../node_
     border: 1px solid lightgray;
     margin: 1px;
 }
+
+.form-control,.form-control.btn{
+    font-size: 14px !important;
+}
